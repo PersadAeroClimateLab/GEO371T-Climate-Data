@@ -1,0 +1,10 @@
+jupyter
+pandas
+xarray
+zarr
+dask[distributed]
+cartopy
+cftime
+s3fs
+bokeh
+plotly
