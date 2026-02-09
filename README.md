@@ -75,9 +75,62 @@ Return to your Jupyter interface, the `GEO371T-Climate-Data/` directory should b
 
 ![Repo directory should be in Jupyter Notebook](./assets/TAP_git.png)
 
-This class is still being actively developed, so we will periodically push updates to the main branch of this GitHub repository. However, the copy of this repository in your home directory does not automatically update and will require manual intervention. Luckily, `git` makes this easy. In a terminal, run the following commands to update:
+This class is still being actively developed, so we will periodically push updates to the main branch of this GitHub repository. However, the copy of this repository in your home directory does not automatically update and will require manual intervention In a terminal, run the following commands to update:
 
 ```
 cd $HOME/GEO371T-Climate-Data
 git pull
 ```
+
+## 3. Handling Update Merge Conflicts
+
+Note that if you make changes to files in your local repository that get updated in the GitHub repository, an error will appear indicating a merge is necessary. We try to avoid modifying assignment notebooks after they are posted, but other files may be updated as development continues. In this situation, use git to handle the merge.
+
+First, identify problematic files that need merging from the error message. Example error message after `git pull`:
+```
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 405 bytes | 11.00 KiB/s, done.
+From https://github.com/PersadAeroClimateLab/GEO371T-Climate-Data
+   40758ab..3baeb71  main       -> origin/main
+Updating 40758ab..3baeb71
+error: Your local changes to the following files would be overwritten by merge:
+        assignment_notebooks/A1-IntroToClimateData.ipynb
+Please commit your changes or stash them before you merge.
+Aborting
+```
+
+In this case, local changes made to `assignment_notebooks/A1-IntroToClimateData.ipynb` are conflicting and require a merge. We can further identify them with `git status`:
+```
+c306-006.ls6(1010)$ git status
+
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   assignment_notebooks/A1-IntroToClimateData.ipynb
+```
+
+First, make a backup of that file so that you can keep your local version:
+
+```
+cp assignment_notebooks/A1-IntroToClimateData.ipynb assignment_notebooks/my_copy_A1-IntroToClimateData.ipynb
+```
+
+**MAKE SURE YOU HAVE COPIED THE ORIGINAL FILE. THIS NEXT STEP WILL OVERWRITE YOUR COPY.**
+
+Then, to overwrite it with the GitHub copy, use `git restore` (*only after making a copy of your original file*):
+
+```
+git restore assignment_notebooks/A1-IntroToClimateData.ipynb
+git pull
+```
+
+## Contribution Guidelines
+
+If you are familiar with GitHub and would like to contribute an update, feel free to [fork this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and [submit a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
