@@ -34,6 +34,8 @@ Reservation: Ask Dr. Persad, can help get through queue wait times
 
 ![Menu selections to start notebook server](./assets/TAP_menus.png)
 
+### Make sure to add the **"Reservation Code"** if doing this during lecture.
+
 Then hit the "Submit" button to put your request for a Jupyter Notebook server in the queue on LS6.
 
 ![Submit button to send job to LS6](./assets/TAP_submit_job.png)
