@@ -1,11 +1,15 @@
-FROM quay.io/jupyter/base-notebook:latest
+FROM python:3.14.2
 
-WORKDIR /work
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    ca-certificates \
+    tini \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY . .
+COPY requirements.txt .
 
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-EXPOSE 8888
-EXPOSE 8787
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["python3"]

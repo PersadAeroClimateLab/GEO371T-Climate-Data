@@ -1,6 +1,12 @@
 jupyter
+jupyterlab
+notebook
+jupyter-server
+ipykernel
 pandas
 xarray
+netcdf4
+h5netcdf
 zarr
 dask[distributed]
 cartopy
