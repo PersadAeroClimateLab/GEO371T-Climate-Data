@@ -1,5 +1,9 @@
 # GEO 371T - Climate Data
 
+## UPDATE: *Added new steps for accessing Python Kernel*
+
+[Click here to skip to the new section](#3-accessing-geo-371t-python-kernel)
+
 ## 1. Connecting to the TACC Analysis Portal
 
 The TACC Analysis Portal (TAP) provides a web-interface for starting Jupyter Notebook servers on high-performance compute nodes. [You can view more detailed documentation here](https://docs.tacc.utexas.edu/tutorials/TAP/) or just follow the steps below. Start by logging into web-app:
@@ -84,7 +88,19 @@ cd $HOME/GEO371T-Climate-Data
 git pull
 ```
 
-## 3. Handling Update Merge Conflicts
+## 3. Accessing GEO 371T Python Kernel
+
+We have built a custom container for a Python kernel that has the necessary packages for running class notebooks. To access it, you need to configure TAP to see the new kernel. In a terminal, run the following command:
+```
+mkdir -p ~/.local/share/jupyter/kernels/geo371t && cp /scratch/07644/oxygen/GEO371T/kernel.json ~/.local/share/jupyter/kernels/geo371t/
+```
+
+Then, in a Jupyter notebook, change to the new kernel. It should appear as "GEO 371T".
+
+![Selecting new Python kernel](./assets/TAP_kernel.png)
+
+
+## 4. Handling Update Merge Conflicts
 
 Note that if you make changes to files in your local repository that get updated in the GitHub repository, an error will appear indicating a merge is necessary. We try to avoid modifying assignment notebooks after they are posted, but other files may be updated as development continues. In this situation, use git to handle the merge.
 
