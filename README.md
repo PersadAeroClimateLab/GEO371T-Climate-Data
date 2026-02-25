@@ -149,6 +149,32 @@ git restore assignment_notebooks/A1-IntroToClimateData.ipynb
 git pull
 ```
 
+## Running Locally
+
+You can run your own server locally to access the same packages within TAP. The paths referenced in notebooks are TACC-specific, so unless you are running the server on a system with access to TACC filesystems, you will likely need to change them. First, clone the repository:
+
+```
+git clone https://github.com/PersadAeroClimateLab/GEO371T-Climate-Data.git
+cd GEO371T-Climate-Data
+```
+
+Then build the container:
+
+```
+docker build -t geo371t .
+```
+
+Start the container and mount the repository so that edited files are saved to disk (note that the token is empty, do not do this for publicly-accessible containers):
+
+```
+docker run -u $(id -u) -it geo371t jupyter lab \
+  --port=8888 \
+  --ServerApp.token='' \
+  --ServerApp.password='' \
+  --ServerApp.ip=0.0.0.0
+```
+
 ## Contribution Guidelines
 
 If you are familiar with GitHub and would like to contribute an update, feel free to [fork this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and [submit a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
+

@@ -4,6 +4,7 @@ notebook
 jupyter-server
 ipykernel
 pandas
+geopandas
 xarray
 netcdf4
 h5netcdf
@@ -14,3 +15,7 @@ cftime
 s3fs
 bokeh
 plotly
+rasterio
+shapely
+scipy
+pykdtree
