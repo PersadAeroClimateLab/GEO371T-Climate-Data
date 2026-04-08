@@ -29,7 +29,7 @@ All datasets are pre-processed into units of `mm/day` and coordinates `(time, la
 
 | ID | Dataset | Type | Experiments | Ensemble Strategy | Temporal Coverage | Access |
 |----|---------|------|-------------|-------------------|-------------------|--------|
-| D1 | CMIP6 multi-model | GCM projections | historical, ssp245, ssp370 | 1 member per model, 23 models | historical: 1980-2014; ssp: 2015-2100 | Public |
+| D1 | CMIP6 multi-model | GCM projections | historical, ssp245, ssp370, ssp585 | 1 member per model, 23 models | historical: 1980-2014; ssp: 2015-2100 | Public |
 | D2 | GFDL-SPEAR-MED | Large ensemble | historical, ssp585 | 30 members | historical: 1980-2014; ssp585: 2015-2100 | Public |
 | D3 | MSWEP | Observational reanalysis | n/a | n/a | 1980-2024 | Request Access |
 | D4 | ERA5 | Observational reanalysis | n/a | n/a | 1980-2024 | Public |
